@@ -1,7 +1,9 @@
-﻿Cognises: AWS Cognito group based authentication with user management  
+﻿Flask Cognises: AWS Cognito group based authentication with user management  
 ---  
 
 This package gives the developer fine grain control over their users through **Group based Permission Using AWS Cognito**, including python middlewares(decorators) called **login_check**, for checking if the user is logged in through AWS Cognito and another middleware called **permission_required** which checks the route access permissions for that user .
+
+**Note: This package is built essentially for usage within a Flask application.**
 
 
 ### Installation
