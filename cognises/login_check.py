@@ -138,7 +138,6 @@ def login_check(cognito_pool_region, cognito_pool_id):
                     aws_region = cognito_pool_region
                     aws_pool = cognito_pool_id
                     details = get_user_email(aws_region, aws_pool, id_token)
-                    print(details)
 
                 except jwt.ExpiredSignatureError:
                     return jsonify({'message': 'token has expired',

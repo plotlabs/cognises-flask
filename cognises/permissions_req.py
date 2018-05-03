@@ -32,7 +32,6 @@ def permission_required(group_detail):
         @wraps(t)
         def decorated(details, *args, **kwargs):
             for each_obj in group_detail:
-                print(details)
                 if each_obj['group_name'] == details['user_group'][0]:
                     allow = each_obj['allowed_functions']
                     if t.__name__ not in allow:

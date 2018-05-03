@@ -77,14 +77,12 @@ def create_update(group_detail, iam_client, cognito_client, cognito_pool_id=None
             group_detail.append(obj)
             with open("group_detail.json", "w") as jsonFile:
                 json.dump(group_detail, jsonFile)
-            print(index)
             index += 1
         else:
             response = iam_client.get_role_policy(
                 RoleName='role_' + each_obj['group_name'],
                 PolicyName=each_obj['group_name'] + '_policy'
             )
-            print response
             if response['PolicyDocument'] != each_obj['group_policy']:
                 print('policy change on', index, 'th object')
                 response = iam_client.delete_role_policy(
@@ -98,5 +96,4 @@ def create_update(group_detail, iam_client, cognito_client, cognito_pool_id=None
                     PolicyDocument=json.dumps(each_obj['group_policy'])
                 )
                 print response
-            print(index)
             index += 1
