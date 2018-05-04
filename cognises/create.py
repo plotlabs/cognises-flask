@@ -70,11 +70,8 @@ def create_update(group_detail, iam_client, cognito_client, cognito_pool_id=None
                 RoleArn=role_arn
             )
             print response
-            obj = each_obj
-            obj['created'] = 'true'
+            each_obj['created'] = 'true'
             print(index, 'will be deleted')
-            group_detail.pop(index)
-            group_detail.append(obj)
             with open("group_detail.json", "w") as jsonFile:
                 json.dump(group_detail, jsonFile)
             index += 1

@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(name='cognises',
-      version='0.1',
+      version='0.2',
       description='Implement application and cloud resource level authorization'
                   ' based on user groups.',
       classifiers=[
