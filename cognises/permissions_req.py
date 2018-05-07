@@ -5,27 +5,9 @@ def permission_required(group_detail):
     """ A flask decorator to check if the user has the permission to access a
     particular route.
 
-    It takes the json loaded data for the details of the groups stored in the
-    following format:
-
-    [
-        {
-            "group_name": "String",
-            "group_policy":
-            {
-                "Version": "2012-10-17",
-                "Statement": [
-                {
-                    "Sid": "Stmt1524591948858",
-                    "Action": "cognito-idp:*",
-                    "Effect": "Allow",
-                    "Resource": "arn:aws:cognito-idp:us-east-1:userid:userpool/pool_id"
-                }]
-            },
-            "created": "false",
-            "allowed_functions": ["protected", "admin_panel", "view_data"]
-        }
-   ]
+    A json loaded data for the details of the groups is passed which has a key
+    called "allowed_functions" which contains a list of all the functions
+    allowed for that particular group.
 
     """
     def decorator(t):

@@ -143,7 +143,7 @@ def login_check(cognito_pool_region, cognito_pool_id):
                     return jsonify({'message': 'token has expired',
                                     'status': 401})
 
-                except:
+                except jwt.JWTError:
                     return jsonify({'message': 'token is invalid',
                                     'status': 401})
 
